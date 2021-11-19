@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit your profile</title>
+  </head>
+  <body>
+    <form action="/my-backend/profile" method="POST">
+      <table width="100%" cellspacing="100%" cellpadding="10px">
+        <tr>
+          <td
+            colspan="6"
+            style="border: 1px solid black; background-color: gray"
+          >
+            <h1>Tell us about yourself</h1>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4>Profile Information</h4>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div>Last Name</div>
+            <input name="Lastname" type="text" style="width: 100%" />
+          </td>
+          <td>
+            <div>First Name</div>
+            <input name="Firstname" type="text" style="width: 100%" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div>Email</div>
+            <input name="Email" type="text" style="width: 100%" />
+          </td>
+          <td>
+            <div>Phone</div>
+            <input Phone="Email" type="text" style="width: 100%" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <span>Gender </span>
+            <input name="gender" type="radio" value="Male" />
+            Male
+            <input name="gender" type="radio" value="Female" />
+            Female
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div>Current Address</div>
+            <br />
+            <select name="City">
+              <option value="disabled selected">Province/City</option>
+              <option value="Kampong Chham">Kampong Chham</option>
+              <option value="Kampot">Kampot</option>
+              <option value="Siem Reap">Siem Reap</option>
+            </select>
+          </td>
+          <td colspan="2">
+            <select name="Country">
+              <option value="disabled selected">Country</option>
+              <option value="Cambodia">Cambodia</option>
+            </select>
+          </td>
+          <td colspan="2">
+            <input type="text" name="code" value="Postal Code: " />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="6">
+            <input type="text" name="address" value="Address: " />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div>Skill</div>
+          </td>
+          <td>
+            <div>Languages</div>
+          </td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" value="Desgining" />Desgining</td>
+          <td><input type="checkbox" value="Coding" />Coding</td>
+          <td><input type="checkbox" value="English" /> English</td>
+          <td><input type="checkbox" value="Chinese" /> Chinese</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" value="Database Management" />Database
+            Management
+          </td>
+          <td><input type="checkbox" value="Debug" />Debug</td>
+          <td><input type="checkbox" value="French" />French</td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
