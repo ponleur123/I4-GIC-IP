@@ -4,102 +4,215 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Submit your profile</title>
+    <title>Submit Your Profile</title>
+    <style>
+      div {
+        font-size: 18px;
+      }
+    </style>
   </head>
   <body>
-    <form action="/my-backend/profile" method="POST">
-      <table width="100%" cellspacing="100%" cellpadding="10px">
+    <form action="/my-backend/profile" method="post">
+      <table width="100%" cellspacing="20px">
         <tr>
           <td
-            colspan="6"
             style="border: 1px solid black; background-color: gray"
+            colspan="6"
           >
             <h1>Tell us about yourself</h1>
           </td>
         </tr>
         <tr>
-          <td>
-            <h4>Profile Information</h4>
+          <td colspan="6">
+            <h3>Profile Information</h3>
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 50%;">
+            <div>Last Name</div>
+          </td>
+          <td style="width: 50%;">
+            <div>First Name</div>
           </td>
         </tr>
         <tr>
           <td>
-            <div>Last Name</div>
-            <input name="Lastname" type="text" style="width: 100%" />
+            <input type="text" style="width: 80%" />
           </td>
           <td>
-            <div>First Name</div>
-            <input name="Firstname" type="text" style="width: 100%" />
+            <input type="text" style="width: 80%" />
           </td>
         </tr>
         <tr>
           <td>
             <div>Email</div>
-            <input name="Email" type="text" style="width: 100%" />
           </td>
           <td>
             <div>Phone</div>
-            <input Phone="Email" type="text" style="width: 100%" />
           </td>
         </tr>
         <tr>
-          <td colspan="3">
-            <span>Gender </span>
-            <input name="gender" type="radio" value="Male" />
-            Male
-            <input name="gender" type="radio" value="Female" />
-            Female
+          <td><input type="text" style="width: 80%" /></td>
+          <td><input type="text" style="width: 80%" /></td>
+        </tr>
+        <tr >
+          <td colspan="6" style="border-bottom: 2px black">
+            <br /><span style="font-size: 18px; padding-right: 20px"
+              >Gender</span
+            >
+            <input type="radio" name="male" value="Male" />Male
+            <input type="radio" name="female" value="Female" />Female
+          </td>
+        </tr>
+       
+        <tr >
+          <td colspan="6" >
+            <h3>Current Address</h3>
           </td>
         </tr>
         <tr>
-          <td>
-            <div>Current Address</div>
-            <br />
-            <select name="City">
-              <option value="disabled selected">Province/City</option>
-              <option value="Kampong Chham">Kampong Chham</option>
-              <option value="Kampot">Kampot</option>
-              <option value="Siem Reap">Siem Reap</option>
-            </select>
-          </td>
-          <td colspan="2">
-            <select name="Country">
-              <option value="disabled selected">Country</option>
-              <option value="Cambodia">Cambodia</option>
-            </select>
-          </td>
-          <td colspan="2">
-            <input type="text" name="code" value="Postal Code: " />
+          <td >
+            <table width="100%">
+              <tr>
+                <td style="width: 50%">
+                  <select name="City" style="width: 70%">
+                    <option value="disabled selected">Province/City</option>
+                    <option value="Kampong Chham">Kampong Chham</option>
+                    <option value="Kampot">Kampot</option>
+                    <option value="Siem Reap">Siem Reap</option>
+                  </select>
+                </td>
+                <td>
+                  <select name="Country" style="width: 70%">
+                    <option value="disabled selected">Country</option>
+                    <option value="Cambodia">Cambodia</option>
+                  </select>
+                </td>
+                
+              </tr>
+            </table>
+            <td>
+                  <input type="text" name="code" value="Postal Code: " style="width: 55%;"/>
+                </td>
           </td>
         </tr>
         <tr>
           <td colspan="6">
-            <input type="text" name="address" value="Address: " />
+            <textarea name="address" cols="185" rows="5" style="width: 100%;">Address</textarea>
           </td>
         </tr>
         <tr>
-          <td colspan="2">
-            <div>Skill</div>
-          </td>
-          <td>
-            <div>Languages</div>
-          </td>
+            <td>
+                <h4>Skill</h4>
+            </td>
+            <td>
+                <h4>Language</h4>
+            </td>
         </tr>
         <tr>
-          <td><input type="checkbox" value="Desgining" />Desgining</td>
-          <td><input type="checkbox" value="Coding" />Coding</td>
-          <td><input type="checkbox" value="English" /> English</td>
-          <td><input type="checkbox" value="Chinese" /> Chinese</td>
+            <td colspan="6">
+                <table width="100%" cellpadding="0px" cellspacing="10px">
+                    <tr>
+                        <td style="width: 20%;">
+                            <input type="checkbox"> Designing
+                        </td>
+                        <td style="width: 30%;"><input type="checkbox"> Database Management</td>
+                        <td ><input type="checkbox"> English</td>
+                        <td><input type="checkbox"> Chinese</td>
+                    </tr>
+                    <tr>
+                        <td ><input type="checkbox"> Coding</td>
+                        <td ><input type="checkbox"> Debug</td>
+                        <td><input type="checkbox"> French</td>
+                    </tr>
+                </table>
+
+            </td>
         </tr>
         <tr>
-          <td>
-            <input type="checkbox" value="Database Management" />Database
-            Management
-          </td>
-          <td><input type="checkbox" value="Debug" />Debug</td>
-          <td><input type="checkbox" value="French" />French</td>
+            <td colspan="6">
+                <h4>Experience</h4>
+            </td>
         </tr>
+
+        <tr>
+            <td colspan="6">
+
+                <table width="100%" cellpadding="10px" celllspacing="20px">
+                    <tr>
+                        <td style="width: 20%;">
+                            <div>From</div>
+                        </td>
+                        <td style="width:30%">
+                            <div>To</div>
+                        </td>
+                        <td>
+                             <div>Description</div>                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 10%;">
+                            <input type="text">
+                        </td>
+                        <td style="width: 5%;">
+                            <input type="text">
+                        </td>
+                        <td style="width: 100%;">
+                            <input type="text" style="width: 40%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <td>
+                            <input type="text" style="width: 40%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <td>
+                            <input type="text" style="width: 40%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <td>
+                            <input type="text" style="width: 40%;">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <h4>Choose yourself</h4>
+            </td>
+            
+        </tr>
+        <tr>
+            <td colspan="6">
+                <input type="file" value="Choose File">
+            </td>
+        </tr>
+ 
       </table>
+      <button type="submit" style="background-color: cadetblue;  height: 20px; float: right;">
+        Submit
+      </button>
     </form>
   </body>
 </html>
