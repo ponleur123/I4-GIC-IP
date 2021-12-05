@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  width: 100%;
+}
+.container {
+  width: 100%;
+  position: relative;
+  height: 100vh;
+}
+.textspace {
+  padding-left: 15%;
+  padding-top: 50px;
+  height: 5vh;
+}
+.title {
+  font-size: 34px;
+  background-color: #fbc604;
+  font-weight: bold;
+  padding-left: 1px;
+  color: #ffffff;
+  width: 10%;
+  padding-left: 8%;
+}
+#r {
+  font-size: 16px;
+  padding-left: 20px;
+  opacity: 0.5;
+}
+.sidebar {
+  width: 15%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  padding-top: 10px;
+  border-right: 10px solid rgb(230, 230, 230);
+}
+.sidebar img {
+  width: 80px;
+  border-radius: 100%;
+  border: 2px solid #e5e5e5;
+}
+.sidebar h2 {
+  font-size: 42px;
+  font-family: sans-serif;
+}
+.sidebar h4 {
+  color: #d1cfcf;
+  padding-bottom: 20px;
+  font-size: 24px;
+}
+#nav {
+  list-style-type: none;
+  text-align: center;
+  padding: 0px;
+}
+#nav li {
+  position: relative;
+  padding: 10px;
+  border-bottom: 1px solid rgb(237, 236, 236);
+  border-top: 1px solid rgb(237, 236, 236);
+  margin-top: -1px;
+}
+#nav li.active {
+  background-color: #fcf8f8;
+}
+
+li.active a:after {
+  background-color: #f4c052;
+  display: block;
+  position: absolute;
+  content: " ";
+  right: 0;
+  bottom: 0;
+  width: 3px;
+  height: 100%;
+}
+#nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+}
+.social img {
+  width: 20px;
+  align-items: center;
+  opacity: 0.5;
+}
+.option {
+  padding-left: 28%;
+  padding-top: 3%;
+  opacity: 0.8;
+  font-size: 20px;
+}
+.option a:link,
+a:visited {
+  background-color: white;
+  color: black;
+  /* border: 2px solid green; */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.option a:hover,
+a:active {
+  background-color: #fbc604;
+  color: white;
+}
+.top {
+  padding-left: 15%;
+  padding-top: 3%;
+}
+.top img {
+  display: inline-block;
+  width: 20%;
+  padding-right: 5%;
+}
+.middle {
+  padding-left: 15%;
+  padding-top: 3%;
+}
+.middle img {
+  display: inline-block;
+  width: 20%;
+  padding-right: 5%;
+}
+.bottom {
+  padding-left: 15%;
+  padding-top: 3%;
+}
+.bottom img {
+  display: inline-block;
+  width: 20%;
+  padding-right: 5%;
+}
+.bottom1 {
+  padding-left: 15%;
+  padding-top: 3%;
+}
+.bottom1 img {
+  display: inline-block;
+  width: 20%;
+  padding-right: 5%;
+}
