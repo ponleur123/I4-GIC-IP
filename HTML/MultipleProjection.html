@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple Projection</title>
+
+    <style>
+              p {
+        left: 200px;
+        position: relative;
+        font-size: 18px;
+      }
+      #button {
+        left: 290px;
+        position: relative;
+        font-size: 14px
+      }
+    </style>
+  </head>
+  <body>
+    <p id="status">OpenCV is loading</p>
+    <video id="myVideo"></video>
+    <canvas id="myCanvas"></canvas>
+    <p>Canvas: Please show your face on me!</p>
+    <input id="button" type="button" onclick="play(); change()"  value="Pause">
+     
+  </input>
+
+  <div class="wrapper">
+      <canvas id="output-canvas" width="640" height="480"></canvas>
+  </div>
+    <script type="text/javascript" src="../JS/MultipleProjection.js"> 
+        
+    
+    </script>
+
+    <script async src="opencv.js" onload="onOpenCvReady()" type="text/javascript">
+    </script>
+  </body>
+</html>
