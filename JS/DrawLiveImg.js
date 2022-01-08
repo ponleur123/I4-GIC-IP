@@ -17,7 +17,7 @@ navigator.mediaDevices.getUserMedia({
     let video = document.querySelector('video');
     video.srcObject = stream;
     video.onloadedmetadata = function(e){
-        video.play();
+        video.pause();
     };
 }).catch((err)=>{
     console.log('navigator.MediaDevices.getUserMedia error: ',err.message,err.name);
@@ -43,11 +43,11 @@ function play(){
 }
 function change(){
     let vid = document.getElementById("button");
-    if(vid.value=="Pause"){
-        vid.value = "Play";
+    if(vid.value=="Play"){
+        vid.value = "Pause";
     }
     else{
-        vid.value = "Pause";
+        vid.value = "Play";
     }
 
 }

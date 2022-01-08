@@ -16,13 +16,16 @@
         position: relative;
         font-size: 14px
       }
+      video{
+        border: 1px solid black;
+      }
     </style>
   </head>
   <body>
-    <video id="myVideo"></video>
+    <video id="myVideo" autostart="false" type="video/webcam"></video>
     <canvas id="myCanvas"></canvas>
     <p>Canvas: Please show your face on me!</p>
-    <input id="button" type="button" onclick="play(); change()"  value="Pause">
+    <input id="button" type="button" onclick="play(); change()"  value="Play">
      
   </input>
 
