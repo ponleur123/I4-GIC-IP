@@ -17,24 +17,27 @@
         position: relative;
         font-size: 14px
       }
+      video{
+        border: 1px solid black;
+      }
     </style>
   </head>
   <body>
     <p id="status">OpenCV is loading</p>
     <video id="myVideo"></video>
-    <canvas id="myCanvas"></canvas>
+    <canvas id="myCanvas" name='input-canvas'></canvas>
     <p>Canvas: Please show your face on me!</p>
-    <input id="button" type="button" onclick="play(); change()"  value="Pause">
+    <input id="button" type="button" onclick="play(); change()"  value="Play">
      
   </input>
 
   <div class="wrapper">
-      <canvas id="output-canvas" width="640" height="480"></canvas>
-  </div>
-    <script type="text/javascript" src="../JS/MultipleProjection.js"> 
-        
     
-    </script>
+    <canvas  id="output-canvas" width="640" height="480"></canvas>
+  </div>
+      
+  
+    <script type="text/javascript" src="../JS/MultipleProjection.js"></script>
 
     <script async src="opencv.js" onload="onOpenCvReady()" type="text/javascript">
     </script>

@@ -15,6 +15,7 @@ const canvas = document.getElementById("myCanvas");
 
 const IMG = canvas.getContext('2d');
 
+
 window.onload = function(){
     var input = document.getElementById("button");
     input.addEventListener('change',handleImage);
@@ -31,3 +32,4 @@ function handleImage(uploadedImgFile){
     }
     reader.readAsDataURL(uploadedImgFile.target.files[0]);
 }
+

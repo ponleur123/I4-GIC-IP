@@ -11,15 +11,15 @@
 // }
 
 //Access to camera
-
+let video = document.querySelector('video');
 navigator.mediaDevices.getUserMedia({
     audio: false,
-    video: true
+    video: true 
 }).then(function(stream){
-    let video = document.querySelector('video');
+    // let video = document.querySelector('video');
     video.srcObject = stream;
     video.onloadedmetadata = function(e){
-        video.play();
+        video.pause();
     };
 }).catch((err)=>{
     console.log('navigator.MediaDevices.getUserMedia error: ',err.message,err.name);
@@ -45,20 +45,20 @@ function play(){
 }
 function change(){
     let vid = document.getElementById("button");
-    if(vid.value=="Pause"){
-        vid.value = "Play";
+    if(vid.value=="Play"){
+        vid.value = "Pause";
     }
     else{
-        vid.value = "Pause";
+        vid.value = "Play";
     }
 }
 
-canvas.onload = function(){
-    let src = new cv.imread('imgdata');
+video.onload = function(){
+    let src = new cv.imread(video);
     let dst = new cv.Mat();
     let rect = new cv.Rect(0,0,100,80);
     dst = src.roi(rect);
-    cv.imshow('myCanvas',dst);
+    cv.imshow('output-canvas',dst);
     src.delete();
     dst.delete();
 }
