@@ -10,15 +10,13 @@
 
 //Access to camera
 
+let video = document.querySelector('video');
 navigator.mediaDevices.getUserMedia({
     audio: false,
-    video: true
+    video: true 
 }).then(function(stream){
-    let video = document.querySelector('video');
     video.srcObject = stream;
-    video.onloadedmetadata = function(e){
-        video.pause();
-    };
+    
 }).catch((err)=>{
     console.log('navigator.MediaDevices.getUserMedia error: ',err.message,err.name);
 });
@@ -28,17 +26,20 @@ const ctx = canvas.getContext('2d');
 
 
 function draw(video, canvas, ctx, framerate){
-    ctx.drawImage(video,10,10);
-    setTimeout(draw, 1000/60);
+    if(playing)
+    {
+        ctx.drawImage(video,0,0,canvas.width,canvas.height);
+        setTimeout(draw, 1000/60);
+    }
+    
 }
 
 function play(){
-    let vid = document.getElementById("myVideo");
-    if(vid.paused){
-        vid.play();
+    if(video.paused){
+        video.play();
     }
     else{
-        vid.pause();
+        video.pause();
     }
 }
 function change(){
@@ -49,7 +50,6 @@ function change(){
     else{
         vid.value = "Play";
     }
-
 }
 
 
