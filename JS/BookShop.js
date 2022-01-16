@@ -1,41 +1,60 @@
+var books = [
+    {name: "Book I1", price: 100, category: "English"},
+    {name: "Book I2", price: 100, category: "English"},
+    {name: "Book I3", price: 100, category: "English"},
+    {name: "Book I4", price: 100, category: "English"},
+    {name: "Book I5", price: 100, category: "English"},
+    {name: "Book I6", price: 100, category: "English"}
+]
 
-var selectedRow = null;
-
-function onFormSubmit(){
-    var formData = readFormData();
-     insertNewData(formData);
+function renderList(){
+    let grid = document.getElementById('block')
+    let boxes = '';
+    grid.innerHTML='';
+    books.forEach((item,i)=>{
+        boxes += `
+        <div id="box" >
+            <div class="button">
+                <button onclick="onDelete(${i})" >Delete</button>
+                <button onclick="onUpdate(${i})" >Update</button>
+            </div>
+            <div class="text">
+                <span i>Name: ${item.name}</span> <br />
+                <span >Category: ${item.category}</span> <br />
+                <span >Price: ${item.price}</span>
+            </div>
+        </div>   
+        `
+    })
+    grid.innerHTML=boxes;
 }
-function readFormData(){
-    var formData = {};
-    formData['title'] = document.getElementById('title').value;
-    formData['type'] = document.getElementById('type').value;
-    formData['money'] = document.getElementById('money').value;
-    return formData;
- 
-}
-function insertNewData(data){
-    document.getElementById('n').innerHTML = "Name: "+data.title;
-    document.getElementById('c').innerHTML = "Category: "+data.type;
-    document.getElementById('p').innerHTML = "Price: "+data.money;
+renderList();
 
+function onSubmit(){
+    const name = document.getElementById('title').value;
+    const price = document.getElementById('money').value;
+    const category = document.getElementById('type').value;
 
-}
-function resetForm(){
-    document.getElementById('title').value = "";
-    document.getElementById('type').value = "";
-    document.getElementById('money').value = "";
-    selectedRow = null;
-}
+    books.push({name,price,category})
 
-function edit(div){
-    selectedRow = div.parentElement.parentElement;
-    document.getElementById('title').value = selectedRow.cells[0].innerHTML;
+    renderList();
+    
 }
+function onUpdate(index){
+    const selectedBook = books[index]
+    let newBookName = prompt("Please update a new book name",selectedBook.name);
+    if(newBookName){
+        books[index]['name'] = newBookName;
 
-function onDelete(div){
-    if(confirm('Are you sure to delete this?')){
-        row = td.parentElement.parentElement;
-        document.getElementById('booklist').deleteRow(row.rowIndex);
-        resetForm();
+        renderList();
+        alert("Book name is updated");
     }
+    if(newBookName==''){
+        alert("Book name is required");
+    }
+}
+
+function onDelete(index){
+    books.splice(index, 1);
+    renderList();
 }
