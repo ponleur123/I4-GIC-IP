@@ -30,6 +30,10 @@ function draw(video, canvas, ctx, framerate){
     if(playing)
     {
         ctx.drawImage(video,0,0,canvas.width,canvas.height);
+        
+        cropROI('output-canvas1',{startX:0,startY:0,endX:213, endY:240})
+
+
         setTimeout(draw, 1000/60);
     }
     
@@ -53,14 +57,14 @@ function change(){
     }
 }
 
-video.onload = function(){
-    let src = new cv.imread(video);
+function cropROI(outputCanvas,{startX,startY,endX,endY}){
+    let src = cv.imread('myCanvas');
     let dst = new cv.Mat();
-    let rect = new cv.Rect(0,0,100,80);
+    let rect = new cv.Rect(startX,startY,endX,endY);
     dst = src.roi(rect);
-    cv.imshow('output-canvas',dst);
+    cv.imshow(outputCanvas, dst);
     src.delete();
-    dst.delete();
+    dst.delet();
 }
 
 

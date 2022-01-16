@@ -20,6 +20,28 @@
       video{
         border: 1px solid black;
       }
+      .wrapper{
+        width:800px;
+        height:600px;
+        border: 1px solid black;
+        position: absolute;
+        left: 700px;
+        top: 0px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: baseline;
+        align-content: center;
+        position: relative;
+      }
+      .box{
+        width:250px;
+        height:290px;
+        border: 1px solid black;
+        padding: 2px 2px 2px 0px;
+
+      }
     </style>
   </head>
   <body>
@@ -32,8 +54,28 @@
   </input>
 
   <div class="wrapper">
+    <div class="box">
+       <canvas  id="output-canvas1" width='100%' height='100%'></canvas>
+    </div>
+
+    <div class="box">
+      <canvas  id="output-canvas2" width='100%' height='100%'></canvas>
+    </div>
+
+    <div class="box">
+      <canvas  id="output-canvas3" width='100%' height='100%'></canvas>
+    </div>
+   
+    <div class="box">
+      <canvas  id="output-canvas4" width='100%' height='100%'></canvas>
+    </div>
     
-    <canvas  id="output-canvas" width="640" height="480"></canvas>
+    <div class="box">
+      <canvas  id="output-canvas5" width='100%' height='100%'></canvas>
+    </div>
+    <div class="box">
+      <canvas  id="output-canvas6" width='100%' height='100%'></canvas>
+    </div>    
   </div>
       
   
