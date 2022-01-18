@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  border: 1px solid black;
+  background-color: rgb(218, 216, 216);
+}
+.parent-container {
+  display: flex;
+  justify-content: center;
+}
+#starting-container {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  margin-top: 50px;
+  width: 30%;
+}
+#starting-container h2 {
+  text-align: center;
+}
+#starting-container input {
+  height: 20px;
+}
