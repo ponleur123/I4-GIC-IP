@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <style>
+      #container {
+        width: 50%;
+        position: absolute;
+        left: 35%;
+        font-size: 28px;
+      }
+      img {
+        width: 35%;
+      }
+      #username {
+        width: 35%;
+        height: 3vh;
+        font-size: 23px;
+        margin: 10px 0 10px 0;
+      }
+      #password {
+        width: 35%;
+        height: 3vh;
+        font-size: 23px;
+        margin: 10px 0 10px 0;
+        -webkit-text-security: square;
+      }
+      #login {
+        width: 35.5%;
+        height: 3vh;
+        font-size: 20px;
+        margin: 10px 0 10px 0;
+        background-color: green;
+      }
+      #home-page {
+        display: none;
+        position: absolute;
+        left: 35%;
+      }
+      p {
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="home-page">
+      <h1>Welcome to home page</h1>
+      <p>You will be automatically logged out</p>
+      <p>Keep refreshing yout page</p>
+      <button id="logout" onclick="onLogOut()">Log Out</button>
+    </div>
+    <div id="container">
+      <img src="./image1.png" /><br />
+      <label for="username">Username</label><br />
+      <input type="text" id="username" placeholder="Username/Email" /><br />
+      <label for="password">Password</label><br />
+      <input type="text" id="password" placeholder="Password" /><br />
+
+      <button id="login" onclick="onSubmit()">Log In</button>
+    </div>
+    <script>
+      const con = document.getElementById("container");
+      const home = document.getElementById("home-page");
+      function onSubmit() {
+        const name = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (name == "gic@itc.com") {
+          if (password == "gic") {
+            con.style.display = "none";
+            home.style.display = "block";
+            var expires = new Date(Date.now() + 86400 * 1000).toUTCString();
+
+            document.cookie =
+              "username=gic@itc.com ; expires=" + expires + 86400 + ";path=/";
+            document.cookie =
+              "password=gic ; expires=" + expires + 86400 + ";path=/";
+          }
+        } else {
+          alert("Your username or password are wrong. Please try again");
+        }
+      }
+      function onLogOut() {
+        con.style.display = "block";
+        home.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
