@@ -7,12 +7,16 @@ class Dinosaur {
     positionX = null;
     positionY = null;
     dy=0;
-    constructor(ctx, x, y) {
-      this.ctx = ctx;
-      this.positionX = x;
-      this.positionY = y;
-      this.ctx.fillStyle = '#F9DC5C';
-      this.ctx.fillRect(this.positionX, this.positionY, this.width, this.height);
+    constructor(gameContext) {
+      this.gameContext = gameContext;
+      this.positionX = this.gameContext.canvas.width;
+      this.positionY = 100;
+      this.shape = new Image();
+      this.shape.src = "../T-Rex Game/animal.png";
+
+      this.shape.onload = (()=> {
+          this.gameContext.ctx.drawImage(this.shape,10,10,100,100,10,10,200,200)
+      })
     }
     setSpeed(baseSpeed, level) {
       this.speed = baseSpeed + level;
