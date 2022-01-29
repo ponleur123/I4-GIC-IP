@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Color Generator</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      #container {
+        width: 20%;
+        height: 50vh;
+        background-color: blue;
+        position: absolute;
+        left: 30%;
+      }
+      #header {
+        width: 100%;
+        height: 10vh;
+        background-color: rgb(53, 52, 52);
+        margin-top: 10px;
+      }
+      h1 {
+        color: white;
+        font-size: 55px;
+        text-align: center;
+      }
+      h2 {
+        color: rgb(238, 175, 175);
+        font-size: 50px;
+        text-align: center;
+      }
+      #middle {
+        width: 100%;
+        height: 20vh;
+        background-color: white;
+        align-items: center;
+      }
+      #generate {
+        width: 25%;
+        height: 3vh;
+        font-size: 18px;
+        margin: 40px 0px 10px 120px;
+      }
+      #reset {
+        width: 25%;
+        height: 3vh;
+        font-size: 18px;
+      }
+      #id {
+        color: black;
+        font-size: 24px;
+        padding-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1>Background Color:</h1>
+        <h2 id="code">asdfa</h2>
+      </div>
+      <button
+        type="button"
+        id="generate"
+        onclick="c1.generate(),c1.getRecord()"
+      >
+        GENERATE
+      </button>
+      <button type="button" id="reset" onclick="c1.reset()">RESET</button>
+      <div id="middle">
+        <div id="id"></div>
+      </div>
+    </div>
+    <script>
+      class Color {
+        colorType = "";
+        record = [];
+        constructor(type) {
+          this.colorType = type;
+          document.getElementById("container").style.backgroundColor =
+            this.colorType;
+        }
+
+        generate() {
+          let hexArr = [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+          ];
+          let newStr = "#";
+          for (let i = 0; i < 6; i++) {
+            newStr += hexArr[this.genRandomNumber(hexArr.length)];
+          }
+          document.getElementById("container").style.backgroundColor = newStr;
+          document.getElementById("code").innerHTML = newStr;
+          this.record.push(newStr);
+          return newStr;
+        }
+        genRandomNumber(MaxValue) {
+          return Math.floor(Math.random() * MaxValue);
+        }
+        getRecord() {
+          console.log(this.record.length);
+          for (let i = 0; i < this.record.length; i++) {
+            document.getElementById("id").innerHTML = this.record[i];
+          }
+        }
+        reset() {
+          document.getElementById("container").style.backgroundColor =
+            this.colorType;
+          document.getElementById("code").innerHTML = this.colorType;
+          document.getElementById("id").innerHTML = this.colorType;
+        }
+      }
+
+      const c1 = new Color("#FFFFFF");
+
+      // c1.generate();
+      // c1.getRecord();
+    </script>
+  </body>
+</html>

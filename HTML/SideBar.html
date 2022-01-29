@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  </head>
+  <body>
+    <div
+      class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-xlarge"
+      style="display: none"
+      id="leftMenu"
+    >
+      <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-xlarge">
+        SIDE-BAR &times;
+      </button>
+      <a href="#" class="w3-bar-item w3-button">Home</a>
+      <a href="#" class="w3-bar-item w3-button">About</a>
+      <a href="#" class="w3-bar-item w3-button">Projects</a>
+      <a href="#" class="w3-bar-item w3-button">Contact</a>
+    </div>
+    <div class="w3-teal">
+      <button
+        class="w3-button w3-teal w3-xxxlarge w3-right"
+        onclick="openLeftMenu()"
+      >
+        &#9776;
+      </button>
+    </div>
+
+    <script>
+      function openLeftMenu() {
+        document.getElementById("leftMenu").style.display = "block";
+      }
+
+      function closeLeftMenu() {
+        document.getElementById("leftMenu").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

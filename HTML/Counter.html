@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      .container {
+        width: 50%;
+        height: 50vh;
+        background-color: rgb(177, 245, 245);
+      }
+      .box {
+        position: absolute;
+        top: 15%;
+        left: 20%;
+      }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 40px;
+      }
+      #number {
+        font-size: 100px;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <h1>Counter</h1>
+        <div id="number">0</div>
+        <button type="button" id="des" onclick="c1.decrease()">DECREASE</button>
+        <button type="button" id="res" onclick="c1.reset()">RESET</button>
+        <button type="button" id="inc" onclick="c1.increase()">INCREASE</button>
+      </div>
+    </div>
+
+    <script>
+      class Counter {
+        number = 0;
+        constructor() {
+          localStorage.setItem("num", this.number);
+        }
+        decrease() {
+          this.number--;
+          localStorage.setItem("num", this.number);
+          document.getElementById("number").innerHTML =
+            localStorage.getItem("num");
+          document.getElementById("number").style.color = "red";
+        }
+        increase() {
+          this.number++;
+          // document.getElementById("number").innerHTML = this.number;
+          document.getElementById("number").style.color = "green";
+
+          localStorage.setItem("num", this.number);
+          document.getElementById("number").innerHTML =
+            localStorage.getItem("num");
+        }
+        reset() {
+          this.number = 0;
+          document.getElementById("number").innerHTML = this.number;
+        }
+      }
+      const c1 = new Counter();
+      // c1.increase();
+      // console.log(c1.number);
+    </script>
+  </body>
+</html>
