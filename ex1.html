@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 50%;
+        height: 10vh;
+        background-color: antiquewhite;
+      }
+      #search {
+        width: 60%;
+        height: 2vh;
+      }
+      button {
+        width: 100px;
+        height: 2vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" label="userID" id="search" />
+      <button>Find</button>
+      <div id="output"></div>
+    </div>
+    <script>
+      const db1 = {
+        1: { id: 1, sex: "M", pic: "'-'" },
+        4: { id: 4, sex: "F", pic: "'-'" },
+        6: { id: 6, sex: "F", pic: "'-'" },
+      };
+
+      const db2 = {
+        2: { id: 2, sex: "F", pic: "'-'" },
+        5: { id: 5, sex: "M", pic: "'-'" },
+      };
+
+      const db3 = {
+        3: { id: 3, sex: "M", pic: "'-'" },
+      };
+      const metaData = {
+        1: "db1",
+        2: "db2",
+        3: "db3",
+        4: "db4",
+        5: "db5",
+        6: "db6",
+      };
+      const userData = {
+        1: { name: "Boupha", age: 18, private: false },
+        2: { name: "Chakra", age: 22, private: true },
+        3: { name: "Champey", age: 17, private: false },
+        4: { name: "Dara", age: 20, private: false },
+        5: { name: "Daevy", age: 19, private: true },
+        6: { name: "Chhorvon", age: 22, private: false },
+      };
+      const input = document.getElementById("search").value;
+      console.log(Object.keys(metaData).length);
+      console.log(Object.keys(userData).length);
+    </script>
+  </body>
+</html>
