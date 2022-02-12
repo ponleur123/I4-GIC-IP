@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #container {
+        width: 400px;
+        height: 600px;
+        background-color: gray;
+        padding: 5px;
+      }
+      #scrollable {
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+      }
+
+      #item {
+        height: 100px;
+        background-color: white;
+        padding: 5px;
+        border-radius: 3px;
+        margin-bottom: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="scrollable"></div>
+    </div>
+
+    <script>
+      (function () {
+        const quotesEl = document.querySelector("#scrollable");
+        const loaderEl = document.querySelector(".loader");
+
+        // get the quotes from API
+        const getQuotes = async (page, limit) => {
+          const API_URL = `https://api.instantwebtools.net/v1/passenger?page=${page}&size=${limit}`;
+          const response = await fetch(API_URL);
+          // handle 404
+          if (!response.ok) {
+            throw new Error(`An error occurred: ${response.status}`);
+          }
+          const data = await response.json();
+          console.log(data);
+
+          return data;
+        };
+
+        // show the quotes
+        const showQuotes = (quotes) => {
+          const name = [];
+          const country = [];
+          quotes.forEach((quote) => {
+            const quoteEl = document.createElement("blockquote");
+            quoteEl.classList.add("quote");
+            quote.airline.forEach((item, index) => {
+              quoteEl.innerHTML = `
+                              <div id="item">Pilot: ${quote.name} </br> Country: ${item.country}</div>
+                          `;
+              name.push(quote.name);
+              country.push(item.country);
+              quotesEl.appendChild(quoteEl);
+            });
+          });
+          localStorage.setItem("name", name);
+          localStorage.setItem("country", country);
+        };
+
+        const hasMoreQuotes = (page, limit, total) => {
+          const startIndex = (page - 1) * limit + 1;
+          return total === 0 || startIndex < total;
+        };
+
+        const loadQuotes = async (page, limit) => {
+          setTimeout(async () => {
+            try {
+              if (hasMoreQuotes(page, limit, total)) {
+                const response = await getQuotes(page, limit);
+
+                showQuotes(response.data);
+
+                total = response.total;
+              }
+            } catch (error) {
+              console.log(error.message);
+            }
+          }, 500);
+        };
+
+        // control variables
+        let currentPage = 1;
+        const limit = 100;
+        let total = 0;
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            const { scrollTop, scrollHeight, clientHeight } =
+              document.documentElement;
+
+            if (
+              scrollTop + clientHeight >= scrollHeight - 5 &&
+              hasMoreQuotes(currentPage, limit, total)
+            ) {
+              currentPage++;
+              loadQuotes(currentPage, limit);
+            }
+          },
+          {
+            passive: true,
+          }
+        );
+
+        // initialize
+        loadQuotes(currentPage, limit);
+      })();
+    </script>
+  </body>
+</html>
